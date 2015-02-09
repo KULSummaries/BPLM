@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.10)  9 FEB 2015 18:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.12.10)  9 FEB 2015 19:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -814,41 +814,73 @@ Package babel Info: Redefining dutch shorthand "|
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 97.
  [3]
-(./Parts/00Voorwoord.tex)
+(./Parts/01Inleiding.tex
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 1.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 1.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 6.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 6.
+LaTeX Font Info:    Try loading font information for U+msa on input line 13.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 13.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(/usr/local/texlive/2014/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+))
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 108.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 107.
+(babel)             in language  on input line 108.
+Package babel Info: Redefining dutch shorthand "|
+(babel)             in language  on input line 108.
+Package babel Info: Redefining dutch shorthand "~
+(babel)             in language  on input line 108.
  [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 107.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 107.
- (helpFiles/Summary.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 107.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 107.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 108.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 108.
+
+(helpFiles/Summary.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 108.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 108.
 Package rerunfilecheck Info: File `Summary.out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 107.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 108.
  ) 
 Here is how much of TeX's memory you used:
- 19437 strings out of 493109
- 360552 string characters out of 6135009
- 469396 words of memory out of 5000000
- 22554 multiletter control sequences out of 15000+600000
- 5042 words of font info for 22 fonts, out of 8000000 for 9000
+ 19555 strings out of 493109
+ 362642 string characters out of 6135009
+ 471399 words of memory out of 5000000
+ 22632 multiletter control sequences out of 15000+600000
+ 7929 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 73i,5n,66p,475b,358s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on helpFiles/Summary.pdf (4 pages, 43255 bytes).
+ 73i,5n,66p,475b,356s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
+cal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on helpFiles/Summary.pdf (4 pages, 91281 bytes).
 PDF statistics:
- 49 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 70 PDF objects out of 1000 (max. 8388607)
+ 55 compressed objects within 1 object stream
  8 named destinations out of 1000 (max. 500000)
- 5645 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 9237 words of extra memory for PDF output out of 10000 (max. 10000000)
 

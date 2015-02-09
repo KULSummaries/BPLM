@@ -14,7 +14,7 @@ Gebruikers van Linux en OSX kunnen dan gewoon naar hun terminal gaan en volgende
 
 ``` bash
 cd /your/preferred/directory
-git clone https://github.com/HerrSubset/SamenvattingMarktenEnPrijzen
+git clone https://github.com/KULSummaries/BPLM
 cd BPLM/
 ```
 
