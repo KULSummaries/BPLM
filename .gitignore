@@ -1,0 +1,7 @@
+helpFiles/
+*.pdf
+*.toc
+*.aux
+*.log
+*.out
+*.lof
