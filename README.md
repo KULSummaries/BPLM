@@ -3,7 +3,7 @@
 Samenvatting voor het vak "Beginselen van Productie en Logistiek Management" aan de KUL.
 
 ## De Samenvatting Verkrijgen
-Je kan de samenvatting gemakkelijk [hier downloaden](https://www.sharelatex.com/github/repos/KULSummaries/BPLM/builds/5b1b5d7274224bc9c8566172e894fdd93569f3fd/raw/output.pdf).
+Je kan de samenvatting gemakkelijk [hier downloaden](https://www.sharelatex.com/github/repos/KULSummaries/BPLM). Er zal meteen gevraagd worden of je de logfile wilt downloaden, maar deze heb je niet nodig.
 
 Om zelf de samenvatting te "bouwen" zul je de volgende dingen nodig hebben:
 * [git](http://www.git-scm.com/)
