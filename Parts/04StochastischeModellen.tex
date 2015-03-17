@@ -1,0 +1,215 @@
+\section{Stochastische Modellen}
+\label{sec:Stochastische Modellen}
+
+Tot nu toe, bij deterministische modellen gingen we er van uit dat de vraag perfect gekend en constant was, dit gaan we nu ``relaxeren''. We zullen de vraag dus niet exact kennen. We kennen wel een gemiddeld aantal klanten en de standaard deviatie (de standaardeviatie was voorheen 0). Stel dat we nu dezelfde bestelpolitiek aanhouden, we gebruiken dus de formule voor $EOQ$ die we reeds gevonden hadden. Dan kan het voorvallen dat er een vraag binnen komt die groter is dan het gemiddelde $\Rightarrow$ \textit{stockbreuk}.
+
+Anderzijds kan het ook voorvallen dat er nog overschot is op het eind van de periode. We onderscheiden dus twee situaties:
+\begin{itemize}
+    \item als DDLT $>$ OP $\Rightarrow$ stockbreuk
+    \item als DDLT $<$ OP $\Rightarrow$ voorraad
+\end{itemize}
+Als we van een normale verdeling van de vraag uitgaan, zal je dus in de helft van de gevallen een stockbreuk hebben. Hoe kunnen we onze bestelpolitiek aanpassen, gegeven de verdeling van de vraag, om een optimaal resultaat te bereiken? 2 mogelijkheden:
+\begin{itemize}
+    \item Bestelhoeveelheid ($Q$) aanpassen
+    \item $OP$ aanpassen
+\end{itemize}
+
+Indien we $OP$ aanpassen is de vraag hoeveel groter of kleiner deze dan moet worden (zie fig~\ref{fig:voorraadbreukwaarschijnlijkheid}). We zullen de extra kosten van een grotere gemiddelde voorraad moeten afwegen tegen de kosten die optreden bij een tekort. Hiervoor introduceren we wat nieuwe notatie: $C_{un} = C_s$ als kost bij ``shortage'', $C_{ov}$ als kost bij ``overstocking''.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.4]{Images/white.png}
+    \caption{De voorraadbreukwaarschijnlijkheid (fig 27 boek)}
+    \label{fig:voorraadbreukwaarschijnlijkheid}
+\end{figure}
+
+\subsection{Eenmalige Cyclus}
+\label{sub:Eenmalige Cyclus}
+Stel dat we slechts \'e\'en keer aankopen, onder een onzekere vraag $D$. We moeten dan geen $OP$ berekenen. Wat is $Q^*$?
+
+Er is een $P(D<Q)$ ($\Rightarrow C_{ov}$) en een $P(D>Q)$ ($\Rightarrow C_s$). We bepalen $Q^*$ door een marginale analyse. Je gaat namelijk bijbestellen zo lang dat:
+\begin{equation}
+    C_{ov} < C{s}
+\end{equation}
+of in andere woorden, $C_{ov} = MB$ en $C{s} = MC$. We bereiken $Q^*$ dan van zodra:
+\begin{align*}
+    MC &\ge MB \\
+    &\Updownarrow \\
+    C_{ov} \times P(D \le Q^*) &\ge C_s \times P(D > Q^*)\\
+    &\Updownarrow \\
+    P(D>Q^*) &\le \frac{C_{ov}}{C_{ov} + C_s}
+\end{align*}
+
+De kans om uit voorraad te lopen moet dus kleiner zijn dan de verhouding van cost van te veel in voorraad ten opzichte van de kost van te weinig in voorraad te hebben. Dit noemt men ook wel de \textit{economische voorraadbreukwaarschijnlijkheid}. Dit geeft weer hoe vaak je bereid bent om uit voorraad te lopen.
+
+
+\subsection{Meerdere Cycli met Verloren Verkoop}
+\label{sub:Meerdere Cycli met Verloren Verkoop}
+We hebben nu gezien hoe we $Q^*$ kunnen bepalen, maar hoe optimaliseren we ook nog $OP$ zodat onze kosten minimaal zijn, rekening houdend met $C_s$ en $C_{ov}$? Bij meerdere aankopen weten we dat:
+\begin{itemize}
+    \item $MB = P(DDLT > OP) \times C_s \times \frac{Q}{D}$
+    \item $MC = P(DDLT \le OP) \times C_h$
+\end{itemize}
+
+Wederom is $OP$ optimaal waar $MC \ge MB$:
+\begin{align*}
+    P(DDLT \le OP) \times C_h &\ge P(DDLT > OP^*) \times C_s \times \frac{Q}{D} \\
+    &\Updownarrow\\
+    P(DDLT > OP^*) &\le \frac{C_h \times Q}{C_s \times D + C_h \times Q}
+\end{align*}
+
+We hebben dus dezelfde redenering als daarnet: de optimale kans op een tekorst moet $\le$ dande afweging van de kost van teveel in voorraad ten op zichte van de kost van te weinig in voorraad.
+
+We kunnen nu de totale kostenfunctie bepalen:
+\begin{align*}
+    TK &= \text{ aankoopkosten } + \text{ bestelkosten } + \text{ voorraadkosten } + \text{ tekortkosten }\\
+        &= D \times C_p + \frac{D}{Q} \times C_o + \frac{Q}{2} \times C_h\\
+        &+ C_h \left( \sum_{DDLT = 0}^{OP} (OP - DDLT) \times P(DDLT) \right) + C_s \times \left( \sum_{DDLT = OP + 1}^{Max} (DDLT - OP) \times P(DDLT) \right) \times \frac{D}{Q}
+\end{align*}
+
+Dan kunnen we ook volgende zaken berekenen:
+\begin{align*}
+    \sum_{DDLT = 0}^{OP} (OP - DDLT) \times P(DDLT) \\
+    Q + \sum_{DDLT = 0}^{OP} (OP - DDLT) \times P(DDLT) \\
+    \frac{Q}{2} + \sum_{DDLT = 0}^{OP} (OP - DDLT) \times P(DDLT)
+\end{align*}
+Deze zijn respectievelijk: gemiddelde voorraad op einde cyclus, gemiddelde voorraad aan begin cyclus en de gemiddelde voorraad. Uit deze laatste vergelijking halen we ook de \textit{cyclusvoorraad} (de eerste term) en de \textit{veiligheidsvoorraad} (de tweede term).
+
+We bepalen $OP^*$ met de voorraadkosten en de tekortkosten; en $Q^*$ met de aankoop- en bestelkosten. De $Q$ zal dus dezelfde zijn als in een deterministisch model.
+
+\subsection{Meerdere Cycli met Recupereerbare Verkoop}
+\label{sub:Meerdere Cycli met Recupereerbare Verkoop}
+Bij recupereerbare verkoop wordt een tekort op het einde van de cyclus meteen van je voorraad na levering afgetrokken. Bijvoorbeeld: bij een tekort van 5 zal na je levering slechts $Q - 5$ beschikbaar zijn.
+
+Nu zal de voorraad op het einde van de cyclus gelijk zijn aan:
+\begin{equation}
+    \sum_{DDLT = 0}^{Max} (OP - DDLT) \times P(DDLT) = OP - \overline{DDLT} = VV
+\end{equation}
+Omdat we nu ook negatieve voorraad meetellen in de gemiddelde voorraad. Het is dan ook redelijk eenvoudig in te zien dat voorraad bij aanvang van de cyclus en de gemiddelde voorraad respectievelijk uitgedrukt worden door:
+\begin{align*}
+    VV + Q \\
+    VV + \frac{Q}{2}
+\end{align*}
+Ook te totale kosten zijn iets anders:
+\begin{align*}
+    TK(Q,OP) &= D \times C_p + \frac{D}{Q} \times C_o + \frac{Q}{2} \times C_h \\
+    &+ C_h \times VV + C_s \times \frac{D}{Q} \times \sum_{DDLT=OP+1}^{Max} (DDLT-OP) \times P(DDLT)
+\end{align*}
+
+Nu willen we wederom $OP$ en $Q$ bepalen zodat de totale kosten geminimaliseerd worden. Dit doen we weer met een marginale analyse:
+\begin{itemize}
+    \item $MC = C_h$ (verschillend van verloren verkoop)
+    \item $MB = C_s \times P(DDLT > OP) \times D/Q$
+\end{itemize}
+
+Via dezelfde procedure als vorige keren bekomen we dat het optimum zich bevindt waar:
+\begin{equation}
+    P(DDLT> OP) \le \frac{C_h \times Q}{C_s \times D}
+\end{equation}
+
+De optimale kans op een tekort is dus groter bij recupereerbare verkoop, maar dit is ook logisch. Bijgevolg zal het $OP$ bij recupereerbare verkoop ook lager liggen.
+
+
+\subsection{Cycle Service Level en Fill Rate}
+\label{sub:Cycle Service Level en Fill Rate}
+CSL = het aantal keer dat je op het eind van een cyclus geen tekort hebt gehad.
+\begin{align*}
+    CSL &= \frac{\text{\# bestelcycli zonder tekort}}{\text{\# bestelcycli}} \\
+    &= 1 - P(\text{stockbreuk}) \\
+    &= 1 - P(DDLT > OP)\\
+    &= P(DDLT \le OP)
+\end{align*}
+
+De fill rate geeft meer info. Deze zegt namelijk dat als je een tekort hebt, hoeveel je dan uit voorraad kan leveren van die hoeveelheid.
+\begin{align*}
+    FR &= \frac{\text{\# eenheden geleverd uit voorraad per jaar}}{\text{\# eenheden gevraagd per jaar}} \\
+    &= 1 - \frac{\text{\# eenheden tekort per jaar}}{\text{D per jaar}} \\
+    &= 1 - \frac{\text{\# eenheden tekort per cyclus}}{\text{Q}} \\
+    &= 1 - \frac{E(DDLT > OP)}{Q}
+\end{align*}
+
+Veel bedrijven zeggen vaak dat ze een bepaald service level willen en gaan zo hun $OP$ bepalen. Indien de kosten niet gekend zijn is dit een goede manier van werken, maar als ze wel gekend zijn kan je waarschijnlijk beter doen.
+
+\subsection{DDLT Continu verdeeld}
+\label{sub:DDLT Continu verdeeld}
+We hebben tot nu toe gewerkt met een DDLT die discreet verdeeld was. Nu gaan we na hoe we omgaan met een DDLT die normaal verdeeld is. Visueel ziet dit er uit zoals in figuur~\ref{fig:DDLTContinuVerdeeld}.
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[scale=0.4]{Images/white.png}
+    \caption{De DDLT continu verdeeld (slides 2d p5 boek)}
+    \label{fig:DDLTContinuVerdeeld}
+\end{figure}
+We vragen ons af hoe de kans op tekort verandert wanneer we $OP$ verschuiven. Er geldt dat:
+\begin{align*}
+    VV &= OP - \overline{DDLT} \\
+    &= z \times \sigma_{DDLT}
+\end{align*}
+
+\subsection{OP en Q simultaan bepalen}
+\label{sub:OP en Q simultaan bepalen}
+Aangezien OP en Q een invloed\footnote{kleine $Q$ leidt tot meer bestellingen en er zal dus vaker kans op tekort zijn. Deze kans bepaalt ook het $OP$.} hebben op elkaar, zijn onze berekeningen tot nu toe altijd al foutief geweest. $OP$ en $Q$ moeten eigenlijk simultaan berekend worden via volgend algoritme:
+\begin{enumerate}
+    \item Bepaal Q volgens EOQ formule
+    \item Bepaal OP op basis van $P(DDLT > OP)$
+    \item Bepaal $E(DDLT > OP)$
+    \item Herbereken $Q' = \sqrt{ \frac{2\times D \times ( C_o + C_s \times E(DDLT > OP))}{C_h} }$
+    \item Ga terug naar stap 2 en blijf volgende stappen herhalen tot convergentie bereikt is
+\end{enumerate}
+
+\subsection{De (s,S)-bestelregel}
+\label{sub:Variant op Bestelregel}
+Volgende regel is een heuristiek die gebruikt kan worden in plaats van de (OP,Q)-bestelregel. Deze laatste kijkt constant naar de voorraad en wanneer deze $<$ dan $OP$, wordt $Q$ eenheden besteld.
+
+Maar stel dat je van $21\rightarrow 11$ stuks gaat, zou je volgens (OP, Q) nog steeds maar $Q$ eenheden bestellen. Deze nieuwe regel zegt dat je $Q$ + de ``undershoot''\footnote{Dit is het aantal eenheden dat je onder je $OP$ zit.} moet bestellen om te vermijden dat je meteen opnieuw moet bestellen.
+
+Deze manier van bestellen noemt men een (s,S)-politiek, waarbij $s$ het $OP$ is, en $S$ het aanvulniveau. Dit aanvulniveau is dus $OP + Q$. Indien producten enkel verkocht worden per stuk (geen grotere hoeveelheden toegelaten), dan is de (s,S) regel gelijk aan de (OP, Q) regel.
+
+Dit wil ook zeggen dat $Q$ niet vast is in elke periode. Het volgende geldt namelijk:
+\begin{align*}
+    Q_t &= (S - s) + \text{ undershoot}_t \\
+    &= S - \text{ voorraadpositie}_t
+\end{align*}
+
+
+\subsection{Stochastische Lead Time}
+\label{sub:Stochastische Lead Time}
+Stel nu dat niet alleen $D$, maar ook $L$ onzeker is. In dat geval moet je een beslissingsboom opstellen (zie slides), want als $L$ langer is dan verwacht, moet je ook rekening houden met de vraag in die langere periode. Als je deze boom opgesteld hebt kan je berekenen wat $P(DDLT = X)$ is.
+
+Bij een normaal verdeelde $L$ zal je $E(L)$ en $Var(L)$ moeten berekenen. $L$ is namelijk onzeker dus je weet niet hoeveel keer je moet sommeren. (zie HB voor voorbeeld)
+
+
+\subsection{Centralisatie}
+\label{sub:Centralisatie}
+In sectie~\ref{ssec:Centraal vs. Decentraal} hadden we reeds gezegd dat het centraliseren van je voorraad de cyclusvoorraad kan doen dalen, maar wat is het effect van zo'n centralisatie op de veiligheidsvoorraad?
+
+Elke regio heeft zijn eigen $D_i$ en $\sigma_i$. Stel dat de regio's dezelfde voorraad hebben:
+\begin{align*}
+    \sum_i VV_i &= \sum_i (z \times \sigma_{DDLT_i}) \\
+    &= n \times z \times \sigma_{DDLT_i}
+\end{align*}
+
+Bij een centrale voorraad voor 2 locaties geldt het volgende:
+\begin{align*}
+    \sigma_{DDLT_{totaal}} &= \sum_1 \sum_2 cov(\sigma_{DDLT_1}, \sigma_{DDLT_2})\\
+    &= \sum_i \sigma^2 DDLT_1 + \sigma^2 DDLT_2 + 2 \sigma DDLT_1 \times 2 \sigma DDLT_2 \times \rho_{1,2}
+\end{align*}
+
+Deze laatste term is de correlatieco\"effici\"ent. Stel dat deze nul is:
+\begin{align*}
+    \rho_{1,2} &= 0 \\
+    &\Downarrow \\
+    \sigma^2_{DDLT_{totaal}} &= 2 \times \sigma_{DDLT}
+\end{align*}
+Dat laatste gaat alleen op als de markten aan elkaar gelijk zijn. Maar de 2 kunnen we veralgemenen naar $n$ voor $n$ markten. Bijgevolg geldt dat:
+\begin{equation*}
+    VV = z \times \sqrt{n} \times \sigma_{DDLT}
+\end{equation*}
+
+Dit wil zeggen dat als er geen correlatie is tussen de verschillende markten, de $VV$ zal afnemen met factor $\sqrt{n}$ bij een centralisatie. Indien $\rho \ne 0$ zien we het volgende. Stel $\rho = 1$:
+\begin{align*}
+    \sigma^2_{DDLT_{totaal}} &= n^2 \times \sigma^2_{DDLT_{totaal}}
+\end{align*}
+
+Dit wil zeggen dat bij perfecte correlatie tussen de verschillende markten, $VV = z \times n \times \sigma_{DDLT}$ en er is dus geen effect op de VV.
+
+Dit alles is het principe van \textit{pooling}: aggregeren van de vraag om zo de variabiliteit uit te middelen overheen de regio's. De $VV$ daalt omdat de onzekerheid gemiddeld gezien daalt. Grote vraag in een bepaalde markt zal waarschijnlijk uitgemiddeld worden door een kleinere vraag ergens anders.
